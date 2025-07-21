@@ -7,7 +7,7 @@ import google.generativeai as genai
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///chat.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///instance/chat.db"
 db = SQLAlchemy(app)
 
 # Gemini API Key
