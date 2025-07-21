@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chat</title>
+</head>
+<body>
+    <h2>Welcome, {{ username }}</h2>
+
+    <form method="POST" action="{{ url_for('ask') }}">
+        <input type="text" name="question" placeholder="Ask something..." required>
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if answer %}
+        <h3>Answer:</h3>
+        <p>{{ answer }}</p>
+    {% endif %}
+
+    <h3>Previous Chats:</h3>
+    <ul>
+        {% for chat in chats %}
+            <li><strong>You:</strong> {{ chat.question }}<br>
+                <strong>Bot:</strong> {{ chat.answer }}</li>
+        {% endfor %}
+    </ul>
+
+    <br><a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
